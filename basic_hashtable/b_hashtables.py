@@ -43,7 +43,7 @@ def hash_table_insert(hash_table, key, value):
         #check if match
         if hash_table.storage[index].key != key:
             print(f'Warning, {str(index)} does not match {hash_table.storage[index]} and will be overwritten')
-        hash_table.storage[index]=Pair(key, value)
+    hash_table.storage[index]=Pair(key, value)
 
 # '''
 # Fill this in.
@@ -65,7 +65,17 @@ def hash_table_remove(hash_table, key):
 # Should return None if the key is not found.
 # '''
 def hash_table_retrieve(hash_table, key):
-    pass
+    index = hash(key, hash_table.capacity)
+    #check if exists
+    if hash_table.storage[index] is not None:
+        #if doesn't match, return none
+        if hash_table.storage[index].key != key:
+            return None
+        #return if is
+        else:
+            return hash_table.storage[index].value
+    print(f'Unable to find key: {key}')
+    return None
 
 
 def Testing():
