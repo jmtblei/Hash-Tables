@@ -15,7 +15,9 @@ class Pair:
 # '''
 class BasicHashTable:
     def __init__(self, capacity):
-        pass
+        self.capacity = capacity
+        self.storage = [None]*capacity
+        self.count = 0
 
 
 # '''
