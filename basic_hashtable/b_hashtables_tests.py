@@ -27,13 +27,13 @@ class TestBasicHashTable(unittest.TestCase):
     #     return_value = hash_table_retrieve(ht, "key-0")
     #     self.assertTrue(return_value == "new-val-0")
 
-    # def test_hash_table_removal(self):
-    #     ht = BasicHashTable(8)
+    def test_hash_table_removal(self):
+        ht = BasicHashTable(8)
 
-    #     hash_table_insert(ht, "key-1", "new-val-1")
-    #     hash_table_remove(ht, "key-1")
-    #     return_value = hash_table_retrieve(ht, "key-1")
-    #     self.assertTrue(return_value is None)
+        hash_table_insert(ht, "key-1", "new-val-1")
+        hash_table_remove(ht, "key-1")
+        return_value = hash_table_retrieve(ht, "key-1")
+        self.assertTrue(return_value is None)
 
 
 if __name__ == '__main__':
