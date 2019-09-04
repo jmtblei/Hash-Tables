@@ -61,7 +61,17 @@ def hash_table_insert(hash_table, key, value):
 # If you try to remove a value that isn't there, print a warning.
 # '''
 def hash_table_remove(hash_table, key):
-    pass
+    index = hash(key, hash_table.capacity)
+    pair = hash_table.storage[index]
+    #check if exists/not empty and match
+    if pair is not None:
+        while pair is not None and pair.key != key:
+            pair = pair.next
+        if pair.key == key:
+            #remove reference to key
+            hash_table.storage[index] = pair.next
+    else:
+        print(f'Warning: Unable to find key: {key}')
 
 
 # '''
