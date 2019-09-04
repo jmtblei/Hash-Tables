@@ -80,14 +80,31 @@ def hash_table_remove(hash_table, key):
 # Should return None if the key is not found.
 # '''
 def hash_table_retrieve(hash_table, key):
-    pass
+    index = hash(key, hash_table.capacity)
+    pair = hash_table.storage[index]
+    #check if exists/not empty and match
+    while pair is not None:
+        if pair.key == key:
+            return pair.value
+        #set to .next pair if no match
+        pair = pair.next
 
 
 # '''
 # Fill this in
 # '''
 def hash_table_resize(hash_table):
-    pass
+    #double size of given array
+    new_capacity = HashTable(2 * hash_table.capacity)
+    #insert from old hash table into new
+    for index in range(len(hash_table.storage)):
+        pair = hash_table.storage[index]
+        while pair != None:
+            hash_table_insert(new_capacity, pair.key, pair.value)
+            print([i.key for i in new_capacity.storage if i is not None])
+            #go to next pair
+            pair = pair.next
+    return new_capacity
 
 
 def Testing():
